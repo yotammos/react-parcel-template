@@ -2,9 +2,10 @@ import * as React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import Counter from './Counter'
-import {PATHS} from '../utils/constants'
+import { PATHS } from '../utils/constants'
 import Styled from '../components/Styled'
 import styled from 'styled-components'
+import Chart from './Chart'
 
 const Home = () => <h2>Home</h2>
 
@@ -33,24 +34,29 @@ const StyledLi = styled('li')`
 `
 
 const AppRouter = () =>
-    <Router>
-        <div>
-            <StyledUl>
-                <StyledLi>
-                    <Link to={PATHS.HOME}>Home</Link>
-                </StyledLi>
-                <StyledLi>
-                    <Link to={PATHS.COUNTER}>Counter Example</Link>
-                </StyledLi>
-                <StyledLi>
-                    <Link to={PATHS.STYLED}>Styled Example</Link>
-                </StyledLi>
-            </StyledUl>
+  <Router>
+    <div>
+      <StyledUl>
+        <StyledLi>
+          <Link to={PATHS.HOME}>Home</Link>
+        </StyledLi>
+        <StyledLi>
+          <Link to={PATHS.COUNTER}>Counter Example</Link>
+        </StyledLi>
+        <StyledLi>
+          <Link to={PATHS.STYLED}>Styled Example</Link>
+        </StyledLi>
+        <StyledLi>
+          <Link to={PATHS.CHART}>Chart Example</Link>
+        </StyledLi>
+      </StyledUl>
 
-            <Route path={PATHS.HOME} exact component={Home} />
-            <Route path={PATHS.COUNTER} component={Counter} />
-            <Route path={PATHS.STYLED} component={Styled} />
-        </div>
-    </Router>
+      <Route path={PATHS.HOME} exact component={Home} />
+      <Route path={PATHS.COUNTER} component={Counter} />
+      <Route path={PATHS.STYLED} component={Styled} />
+      <Route path={PATHS.CHART} component={Chart} />
+    </div>
+
+  </Router>
 
 render(<AppRouter />, document.getElementById('main'))
